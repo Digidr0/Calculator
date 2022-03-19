@@ -7,15 +7,15 @@
 }
 ::selection {
   background: var(--accent-color);
- }
-:root{
-  --accent-color: #F55866;
 }
-body{
+:root {
+  --accent-color: #f55866;
+}
+body {
   height: 100vh;
   background: #242424;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .calculator-grid {
   margin-top: 50px;
@@ -32,52 +32,53 @@ body{
 }
 .span-two {
   grid-column: span 2;
-  color: var(--accent-color)
+  color: var(--accent-color);
 }
 .output {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-direction: column;
-    padding: 4px;
-    padding-right:15px ;
-     margin: 2px;
-     margin-bottom: 8px;
-     color: #ffffff;
-    background-color: rgba(36, 36, 36, 0.281);
-    border-radius: 7px;
-    border: solid var(--accent-color) 2px;
-    
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 4px;
+  padding-right: 15px;
+  margin: 2px;
+  margin-bottom: 8px;
+  color: #ffffff;
+  background-color: rgba(36, 36, 36, 0.281);
+  border-radius: 7px;
+  border: solid var(--accent-color) 2px;
 }
-.output > .previous-operand, .current-operation{
-    color: var(--accent-color);
-    font-size: 0.5em;
+.output > .previous-operand,
+.current-operation {
+  color: var(--accent-color);
+  font-size: 0.5em;
 }
 
 .calculator-grid > button {
-    outline: none;
-    margin: 3px;
-    border-radius: 7px;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    user-select: none;
+  outline: none;
+  margin: 3px;
+  border-radius: 7px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  user-select: none;
 }
-.number, .operation, .delete, .all-clear, .dot{
+.number,
+.operation,
+.delete,
+.all-clear,
+.dot {
   border: rgb(53, 52, 52) 1px solid;
   background-color: rgba(42, 42, 42, 0.7);
 }
-.equals{
+.equals {
   background-color: var(--accent-color);
   border: white 1px solid;
   font-size: 40px;
-
-
 }
-.calculator-grid > button:hover{
-    background-color: rgba(61, 61, 61, 0.678);
-    transition: background-color .2s;
-    color: var(--accent-color);
-
+.calculator-grid > button:hover {
+  background-color: rgba(61, 61, 61, 0.678);
+  transition: background-color 0.2s;
+  color: var(--accent-color);
 }

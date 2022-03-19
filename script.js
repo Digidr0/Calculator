@@ -37,7 +37,7 @@ function operate(operator, a, b = 0) {
   }
 }
 //clear all display and all vars
-function allClear () {
+function allClear() {
   previousOperand = "";
   currentOperand = "";
   currentoperation = "";
@@ -58,32 +58,35 @@ operationButtons.forEach(function (item) {
 //add .value number to current operator, if "isNew" is "true" clear all, and then...
 numberButtons.forEach(function (item) {
   item.addEventListener("click", function () {
-    if(isNew){allClear(); isNew = false}
+    if (isNew) {
+      allClear();
+      isNew = false;
+    }
     currentOperand = currentOperandContainer.textContent.concat(item.value);
     currentOperandContainer.textContent = currentOperand;
   });
 });
 //count all and dispay result, change "previosOperator" to result expression
 equalsButton.addEventListener("click", function () {
-  previousOperandContainer.textContent = 
-    `${previousOperand} ${currentoperation} ${currentOperand}`;
+  previousOperandContainer.textContent = `${previousOperand} ${currentoperation} ${currentOperand}`;
   operate(currentoperation, previousOperand, currentOperand);
   currentOperandContainer.textContent = currentOperand;
   currentOperationContainer.textContent = "=";
   isNew = true;
-
 });
 //delete last char from string "currentOperator"
 deleteButton.addEventListener("click", function () {
   currentOperandContainer.textContent =
     currentOperandContainer.textContent.slice(0, -1);
-    isNew = true;
+  isNew = true;
 });
 //clear all with function
 allClearButton.addEventListener("click", allClear);
 dotButton.addEventListener("click", function () {
-  if(currentOperand == 0){currentOperandContainer.textContent =
-    currentOperandContainer.textContent.concat("0.");}
+  if (currentOperand == 0) {
+    currentOperandContainer.textContent =
+      currentOperandContainer.textContent.concat("0.");
+  }
   if (currentOperandContainer.textContent.indexOf(".") == -1) {
     currentOperandContainer.textContent =
       currentOperandContainer.textContent.concat(".");
