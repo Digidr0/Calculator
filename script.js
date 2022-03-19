@@ -45,7 +45,7 @@ function allClear() {
   previousOperandContainer.textContent = previousOperand;
   currentOperationContainer.textContent = currentoperation;
 }
-//operate with .value operator
+//operate with .value operator, set "isNew" to false (for multiple expressions)
 operationButtons.forEach(function (item) {
   item.addEventListener("click", function () {
     currentoperation = item.value;
@@ -53,6 +53,7 @@ operationButtons.forEach(function (item) {
     previousOperandContainer.textContent = currentOperandContainer.textContent;
     currentOperandContainer.textContent = "";
     currentOperationContainer.textContent = item.value;
+    isNew = false;
   });
 });
 //add .value number to current operator, if "isNew" is "true" clear all, and then...
