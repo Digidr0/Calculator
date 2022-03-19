@@ -10,6 +10,7 @@ const allClearButton = document.querySelector(".all-clear");
 let previousOperand = "";
 let currentOperand = "";
 let currentoperation = "";
+let isNew = false;
 
 currentOperandContainer.textContent = currentOperand;
 previousOperandContainer.textContent = previousOperand;
@@ -31,6 +32,14 @@ function operate(operator, a, b = 0) {
     }
   }
 }
+function allClear () {
+  previousOperand = "";
+  currentOperand = "";
+  currentoperation = "";
+  currentOperandContainer.textContent = currentOperand;
+  previousOperandContainer.textContent = previousOperand;
+  currentOperationContainer.textContent = currentoperation;
+}
 
 operationButtons.forEach(function (item) {
   item.addEventListener("click", function () {
@@ -44,6 +53,7 @@ operationButtons.forEach(function (item) {
 
 numberButtons.forEach(function (item) {
   item.addEventListener("click", function () {
+    if(isNew){allClear(); isNew = false}
     currentOperand = currentOperandContainer.textContent.concat(item.value);
     currentOperandContainer.textContent = currentOperand;
   });
@@ -55,21 +65,17 @@ equalsButton.addEventListener("click", function () {
   operate(currentoperation, previousOperand, currentOperand);
   currentOperandContainer.textContent = currentOperand;
   currentOperationContainer.textContent = "=";
+  isNew = true;
+
 });
 
 deleteButton.addEventListener("click", function () {
   currentOperandContainer.textContent =
     currentOperandContainer.textContent.slice(0, -1);
+    isNew = true;
 });
 
-allClearButton.addEventListener("click", function () {
-  previousOperand = "";
-  currentOperand = "";
-  currentoperation = "";
-  currentOperandContainer.textContent = currentOperand;
-  previousOperandContainer.textContent = previousOperand;
-  currentOperationContainer.textContent = currentoperation;
-});
+allClearButton.addEventListener("click", allClear);
 
 dotButton.addEventListener("click", function () {
   if(currentOperand == 0){currentOperandContainer.textContent =
