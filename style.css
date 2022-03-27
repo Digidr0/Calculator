@@ -48,6 +48,7 @@ body {
   background-color: rgba(36, 36, 36, 0.281);
   border-radius: 7px;
   border: solid var(--accent-color) 2px;
+  overflow: hidden;
 }
 .output > .previous-operand,
 .current-operation {
